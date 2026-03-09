@@ -1,0 +1,9 @@
+{
+  "name": "Prissy Treats",
+  "short_name": "Prissy",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff69b4",
+  "icons": []
+}

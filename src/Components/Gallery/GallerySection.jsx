@@ -1,14 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import cake_3 from "../../assets/cake3.jpeg";
+import cake_4 from "../../assets/cake4.jpeg";
+import foodImage from '../../assets/spring-roll.jpg'
+import cake_5 from "../../assets/cake5.jpeg";
+import cake_1 from "../../assets/cake1.jpeg";
+import chops from '../../assets/party-tray.jpeg'
+import cake_6 from "../../assets/cake6.jpeg";
+import wedding from "../../assets/wedding-cake.jpeg";
+import birthday from "../../assets/birthday-cake.jpeg";
 
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop", alt: "Chocolate birthday cake" },
-  { src: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=400&h=600&fit=crop", alt: "Elegant wedding cake" },
-  { src: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=400&fit=crop", alt: "Colorful cupcakes" },
-  { src: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&h=400&fit=crop", alt: "Pink frosted cupcakes" },
-  { src: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=400&h=600&fit=crop", alt: "Strawberry cake" },
-  { src: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=400&h=400&fit=crop", alt: "Chocolate drip cake" },
-  { src: "https://images.unsplash.com/photo-1562440499-64c9a111f713?w=600&h=400&fit=crop", alt: "Assorted pastries" },
+  { src: cake_6, alt: " birthday cake" },
+  { src: cake_5, alt: "Elegant wedding cake" },
+  { src: chops, alt: "Party chops tray" },
+  { src: cake_4, alt: "Pink frosted cakes" },
+  { src: cake_1, alt: "Strawberry cake" },
+  { src: wedding, alt: "Vanilla drip cake" },
+  { src: foodImage, alt: "Assorted pastries" },
   { src: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=400&fit=crop", alt: "Celebration cake" }
 ];
 
@@ -58,7 +67,7 @@ export default function GallerySection() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <a href__="https://instagram.com/prissytreats" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.tiktok.com/@prissy_treats?_r=1&_t=ZS-94TMu0Is9lI" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-pink-500 hover:text-pink-600 font-medium transition-colors">
             <span>See more on Tiktok</span>
           </a>

@@ -1,18 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import foodImage from '../../assets/spring-roll.jpg'
-import puffImage from '../../assets/puff-puff.jpg'
-import chinImage from '../../assets/chin-chin.jpg'
+import chinImage from '../../assets/chin-image.jpeg'
+import cakez from '../../assets/birthday-cake.jpeg'
+import cakew from '../../assets/wedding-cake.jpeg'
+import chops from '../../assets/party-tray.jpeg'
+import chopz from '../../assets/chop-plate.jpeg'
+import meat from '../../assets/meat-pie.jpeg'
 
 const products = [
-  { name: "Birthday Cakes", description: "Custom designed cakes to make your special day unforgettable", image: "https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=400&h=300&fit=crop", price: "From ₦15,000" },
-  { name: "Wedding Cakes", description: "Elegant multi-tiered masterpieces for your perfect day", image: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=400&h=300&fit=crop", price: "From ₦50,000" },
-  { name: "Cupcakes", description: "Bite-sized delights perfect for any occasion", image: "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=400&h=300&fit=crop", price: "From ₦500 each" },
-  { name: "Chin Chin", description: "Crispy, crunchy Nigerian snack made with love", image: chinImage, price: "From ₦2,000" },
-  { name: "Puff Puff", description: "Soft, fluffy Nigerian doughnuts that melt in your mouth", image: puffImage, price: "From ₦1,500" },
-  { name: "Samosas", description: "Crispy pastry filled with savory goodness", image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop", price: "From ₦200 each" },
-  { name: "Spring Rolls", description: "Golden crispy rolls with delicious fillings,yummy", image: foodImage, price: "From ₦200 each" },
-  { name: "Party Chops Pack", description: "Assorted small chops perfect for your events", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=300&fit=crop", price: "From ₦5,000" }
+  { name: "Birthday Cakes", description: "Custom designed cakes to make your special day unforgettable", image: cakez, price: "From ₦15,000" },
+  { name: "Wedding Cakes", description: "Elegant multi-tiered masterpieces for your perfect day", image: cakew, price: "From ₦50,000" },
+  { name: "Small Chops", description: "Bite-sized delights perfect for any occasion", image: chopz, price: "₦2500 each" },
+  { name: "Chin Chin", description: "Crispy, crunchy Nigerian snack made with love", image: chinImage, price: "From ₦3,000" },
+  { name: "Meat-pie", description: "Soft, fluffy Nigerian pie that melt in your mouth", image: meat, price: "₦1,200" },
+  { name: "Samosas", description: "Crispy pastry filled with savory goodness", image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop", price: "From ₦2500 each" },
+  { name: "Spring Rolls", description: "Golden crispy rolls with delicious fillings,yummy", image: foodImage, price: "From ₦2500 " },
+  { name: "Party Chops Pack", description: "Assorted small chops perfect for your events", image: chops, price: "From ₦5,000" }
 ];
 
 const containerVariants = {

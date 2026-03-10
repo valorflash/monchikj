@@ -4,7 +4,7 @@ import { X } from 'lucide-react';
 
 export default function MegaSection() {
   const [showTooltip, setShowTooltip] = useState(true);
-  const whatsappLink = "https://wa.me/2348000000000?text=Hello%20Prissy%20Treats%2C%20I%20would%20like%20to%20place%20an%20order";
+  const whatsappLink = "https://wa.me/2349033419815?text=Hello%20Prissy%20Treats%2C%20I%20would%20like%20to%20place%20an%20order";
 
   return (
     <div className="fixed bottom-6 right-6 z-50">

@@ -11,7 +11,7 @@ import AboutSection from './Components/About/AboutSection';
 import ProductsSection from './Components/product/ProductsSection';
 import TestimonialsSection from './Components/Testimonials/TestimonialSection';
 import ContactSection from './Components/Contact/ContactSection';
-import Footer from './Components/footer/FooterSection';
+import Footer from './Components/Footer/FooterSection';
 import CTABanner from './Components/calltoaction/CTABanner';
 import FAQSection from './Components/faq/FAQSection';
 import About from './pages/About';

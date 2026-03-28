@@ -1,4 +1,4 @@
-import Navbar from "../Components/navbar/NavbarSection";
+import Navbar from "../Components/Navbar/NavbarSection";
 import Footer from "../Components/footer/FooterSection";
 import { Outlet } from "react-router-dom";
 

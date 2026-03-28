@@ -5,7 +5,7 @@ import MainLayout from "./layout/MainLayout";
 import Shop from './pages/Shop';
 import ProductDetails from './pages/ProductDetails';
 import LoadingScreen from './Components/Loading/LoadingScreen';
-import Navbar from './Components/temp/NavbarSection';
+import Navbar from './Components/Navbar/NavbarSection';
 import HeroSection from './Components/Hero/HeroSection';
 import AboutSection from './Components/About/AboutSection';
 import ProductsSection from './Components/product/ProductsSection';

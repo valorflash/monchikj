@@ -1,60 +1,72 @@
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
-export default function LoadingScreen() {
+export default function Loader() {
   return (
-    <motion.div
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-      className="fixed inset-0 z-50 bg-gradient-to-br from-pink-50 via-rose-50 to-amber-50 flex flex-col items-center justify-center"
-    >
-      {/* Spinner */}
+    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-[#021018] overflow-hidden">
+
+      {/* BACKGROUND GLOW */}
       <motion.div
-        initial={{ scale: 0.6, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.4 }}
-        className="relative"
-      >
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }}
-          className="w-24 h-24 rounded-full border-4 border-pink-200 border-t-pink-500"
-        />
+        className="absolute w-60 h-60 rounded-full bg-cyan-500/10 blur-3xl"
+        animate={{
+          scale: [1, 1.4, 1],
+          opacity: [0.4, 0.8, 0.4],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
 
-        <motion.div
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 1, repeat: Infinity }}
-          className="absolute inset-0 flex items-center justify-center text-4xl"
+      {/* OUTER RING */}
+      <motion.div
+        className="absolute w-40 h-40 rounded-full border border-cyan-400/20"
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+
+      {/* INNER RING */}
+      <motion.div
+        className="absolute w-28 h-28 rounded-full border-2 border-transparent border-t-cyan-400 border-r-cyan-300"
+        animate={{ rotate: -360 }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+
+      {/* CONTENT */}
+      <motion.div
+        className="text-center"
+        animate={{ scale: [1, 1.05, 1] }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        {/* BRAND NAME */}
+        <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-300 via-white to-cyan-400 bg-clip-text text-transparent tracking-wide">
+          MonChikJ
+        </h1>
+
+        {/* TAGLINE */}
+        <motion.p
+          className="text-cyan-400 text-sm mt-2 tracking-wide"
+          animate={{ opacity: [0.4, 1, 0.4] }}
+          transition={{
+            duration: 1.8,
+            repeat: Infinity,
+          }}
         >
-          🎂
-        </motion.div>
+          Crafting Comfort
+        </motion.p>
       </motion.div>
-
-      {/* Title */}
-      <motion.h1
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="mt-8 text-3xl font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400"
-      >
-        Prissy Treats
-      </motion.h1>
-
-      {/* Dots */}
-      <div className="flex gap-2 mt-6">
-        {[0, 1, 2].map((i) => (
-          <motion.div
-            key={i}
-            animate={{ y: [0, -8, 0] }}
-            transition={{
-              duration: 0.6,
-              repeat: Infinity,
-              delay: i * 0.2,
-            }}
-            className="w-2 h-2 rounded-full bg-pink-400"
-          />
-        ))}
-      </div>
-    </motion.div>
-  );
+    </div>
+  )
 }

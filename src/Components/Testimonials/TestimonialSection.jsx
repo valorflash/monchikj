@@ -1,125 +1,136 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
-import profileImage from '../../assets/chidimma.jpg'
-import eventPlanner from '../../assets/ifeanyi.jpg'
-import eventOrganizer from '../../assets/funke.jpg'
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import AnimatedSection from "../ui/AnimatedSection";
 
 const testimonials = [
   {
-    name: "Adaeze Okonkwo", role: "Birthday Party Host",
-    image: profileImage,
+    name: "Dr. Sarah M.",
+    role: "Emergency Medicine",
+    text: "The most comfortable scrubs I've ever worn. After 12-hour shifts, they still look and feel amazing.",
     rating: 5,
-    text: "Prissy Treats made my daughter's birthday absolutely magical! The cake was not only stunning but incredibly delicious. Everyone kept asking where I got it from!"
   },
   {
-    name: "Chidi Nnamdi", role: "Wedding Planner",
-    image: eventPlanner,
+    name: "Nurse Amara K.",
+    role: "Pediatric ICU",
+    text: "Finally, scrubs that are both stylish and functional! I get compliments every shift.",
     rating: 5,
-    text: "I've worked with many bakers, but Prissy Treats stands out. Their wedding cakes are true works of art. Professional service and amazing taste!"
   },
   {
-    name: "Funke Adeyemi", role: "Event Organizer",
-    image: eventOrganizer,
+    name: "Dr. Fatima R.",
+    role: "Surgeon",
+    text: "Premium quality at a reasonable price. The fit is perfect and lasts long.",
     rating: 5,
-    text: "The small chops were a hit at our corporate event! Fresh, perfectly seasoned, and the presentation was beautiful. Will definitely order again!"
-  }
+  },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
-};
+export default function Testimonials() {
+  const [current, setCurrent] = useState(0);
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
-export default function TestimonialsSection() {
+  const prev = () =>
+    setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
+
+  const next = () =>
+    setCurrent((c) => (c + 1) % testimonials.length);
+
   return (
-    <section id="testimonials" className="py-24 bg-gradient-to-b from-white to-rose-50/50 relative overflow-hidden">
-      <motion.div
-        className="absolute top-20 left-10 text-pink-200 opacity-30"
-        animate={{ rotate: [0, 360] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      >
-        <Quote className="w-32 h-32" />
-      </motion.div>
+    <section className="py-20 sm:py-28 px-4 bg-[#020617]">
+      <div className="max-w-4xl mx-auto">
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="inline-block text-pink-500 font-medium mb-4 bg-pink-100 px-4 py-2 rounded-full">Testimonials</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            What Our{' '}
-            <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-amber-400">Happy Customers</span>{' '}
-            Say
+        {/* HEADER */}
+        <AnimatedSection className="text-center mb-14">
+          <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">
+            Testimonials
+          </p>
+
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            Loved by Professionals
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what people who've tasted our treats have to say!</p>
-        </motion.div>
+        </AnimatedSection>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8"
-        >
-          {testimonials.map((testimonial) => (
-            <motion.div key={testimonial.name} variants={itemVariants} whileHover={{ y: -10 }}>
-              <div className="h-full bg-white shadow-xl rounded-3xl overflow-hidden relative">
-                <div className="h-2 bg-gradient-to-r from-pink-400 via-rose-400 to-amber-400" />
-                <div className="p-8">
-                  <div className="absolute top-6 right-6 text-pink-100">
-                    <Quote className="w-12 h-12" />
-                  </div>
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 mb-6 leading-relaxed relative z-10">"{testimonial.text}"</p>
-                  <div className="flex items-center gap-4">
-                    <img src={testimonial.image} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover ring-4 ring-pink-100" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
-                      <p className="text-sm text-pink-500">{testimonial.role}</p>
-                    </div>
-                  </div>
+        {/* CARD */}
+        <AnimatedSection>
+          <div className="relative bg-[#0B0F14] border border-white/5 rounded-3xl p-8 sm:p-12">
+
+            <Quote className="w-10 h-10 text-cyan-500/20 absolute top-6 left-6" />
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4 }}
+                className="text-center"
+              >
+                {/* STARS */}
+                <div className="flex items-center justify-center gap-1 mb-6">
+                  {Array.from({ length: testimonials[current].rating }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-cyan-400 text-cyan-400"
+                    />
+                  ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 flex flex-wrap justify-center items-center gap-8"
-        >
-          <div className="flex items-center gap-2 text-gray-600">
-            <div className="flex -space-x-2">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-300 to-rose-300 border-2 border-white" />
-              ))}
+                {/* TEXT */}
+                <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-8 italic">
+                  "{testimonials[current].text}"
+                </p>
+
+                {/* NAME */}
+                <p className="text-base font-semibold text-white">
+                  {testimonials[current].name}
+                </p>
+
+                <p className="text-sm text-cyan-400">
+                  {testimonials[current].role}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* CONTROLS */}
+            <div className="flex items-center justify-center gap-4 mt-8">
+
+              <button
+                onClick={prev}
+                className="p-2 rounded-full border border-white/5 hover:border-cyan-500/30 hover:bg-cyan-500/10 transition"
+              >
+                <ChevronLeft className="w-5 h-5 text-gray-400" />
+              </button>
+
+              <div className="flex gap-2">
+                {testimonials.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === current
+                        ? "bg-cyan-400 w-6"
+                        : "bg-gray-600/40 w-2"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={next}
+                className="p-2 rounded-full border border-white/5 hover:border-cyan-500/30 hover:bg-cyan-500/10 transition"
+              >
+                <ChevronRight className="w-5 h-5 text-gray-400" />
+              </button>
+
             </div>
-            <span className="text-sm font-medium">500+ Happy Customers</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-600">
-            <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-              ))}
-            </div>
-            <span className="text-sm font-medium">4.9 Average Rating</span>
-          </div>
-        </motion.div>
+        </AnimatedSection>
+
       </div>
     </section>
   );
